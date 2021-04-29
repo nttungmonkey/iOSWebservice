@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210428082934_init3")]
-    partial class init3
+    [Migration("20210429021632_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,8 +33,7 @@ namespace DAL.Migrations
 
                     b.Property<DateTime?>("user_created_at");
 
-                    b.Property<string>("user_created_by")
-                        .IsRequired();
+                    b.Property<int>("user_created_by");
 
                     b.Property<string>("user_email")
                         .IsRequired();
@@ -67,6 +66,12 @@ namespace DAL.Migrations
                     b.HasKey("user_id");
 
                     b.ToTable("user","dbo");
+
+                    b.HasData(
+                        new { user_id = 1, user_birthday = new DateTime(2021, 4, 29, 11, 16, 32, 267, DateTimeKind.Local), user_created_at = new DateTime(2021, 4, 29, 11, 16, 32, 266, DateTimeKind.Local), user_created_by = 1, user_email = "nttung@gmai.com", user_firstname = "Tung", user_gender = 1, user_isdeleted = 0, user_lastname = "Nguyen", user_password = "nttung", user_phone = "096431808", user_status = 1, user_username = "nttung" },
+                        new { user_id = 2, user_birthday = new DateTime(2021, 4, 29, 11, 16, 32, 267, DateTimeKind.Local), user_created_at = new DateTime(2021, 4, 29, 11, 16, 32, 267, DateTimeKind.Local), user_created_by = 1, user_email = "abc@gmai.com", user_firstname = "abc", user_gender = 1, user_isdeleted = 0, user_lastname = "abc", user_password = "abc", user_phone = "096431808", user_status = 1, user_username = "abc" },
+                        new { user_id = 3, user_birthday = new DateTime(2021, 4, 29, 11, 16, 32, 267, DateTimeKind.Local), user_created_at = new DateTime(2021, 4, 29, 11, 16, 32, 267, DateTimeKind.Local), user_created_by = 1, user_email = "xyz@gmai.com", user_firstname = "xyz", user_gender = 1, user_isdeleted = 0, user_lastname = "xyz", user_password = "xyz", user_phone = "096431808", user_status = 1, user_username = "xyz" }
+                    );
                 });
 #pragma warning restore 612, 618
         }

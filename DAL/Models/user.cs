@@ -54,7 +54,7 @@ namespace DAL.Models
 
         [Required]
         [Display(Name = "UserCreatedBy")]
-        public string user_created_by { get; set; }
+        public int user_created_by { get; set; }
 
         [Display(Name = "UserCreatedAt")]
         public DateTime? user_created_at { get; set; } = DateTime.Now;

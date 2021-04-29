@@ -50,7 +50,13 @@ namespace iOSWebservice
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MeetingAPI v1"));
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MeetingAPI v1");
+                c.RoutePrefix = string.Empty;
+
+            });
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
